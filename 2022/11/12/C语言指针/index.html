@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>c语言指针 | 榕城張国荣</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="指针对于C来说太重要。然而，想要全面理解指针，除了要对C语言有熟练的掌握外，还要有计算机硬件以及操作系统等方方面面的基本知识。所以本文尽可能的通过一篇文章完全讲解指针。 为什么需要指针？ 指针解决了一些编程中基本的问题。 第一，指针的使用使得不同区域的代码可以轻易的共享内存数据。当然小伙伴们也可以通过数据的复制达到相同的效果，但是这样往往效率不太好。 因为诸如结构体等大型数据，占用的字节数多，复制">
+<meta property="og:type" content="article">
+<meta property="og:title" content="c语言指针">
+<meta property="og:url" content="http://example.com/2022/11/12/C%E8%AF%AD%E8%A8%80%E6%8C%87%E9%92%88/index.html">
+<meta property="og:site_name" content="榕城張国荣">
+<meta property="og:description" content="指针对于C来说太重要。然而，想要全面理解指针，除了要对C语言有熟练的掌握外，还要有计算机硬件以及操作系统等方方面面的基本知识。所以本文尽可能的通过一篇文章完全讲解指针。 为什么需要指针？ 指针解决了一些编程中基本的问题。 第一，指针的使用使得不同区域的代码可以轻易的共享内存数据。当然小伙伴们也可以通过数据的复制达到相同的效果，但是这样往往效率不太好。 因为诸如结构体等大型数据，占用的字节数多，复制">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-11-12T06:12:02.000Z">
+<meta property="article:modified_time" content="2022-11-12T06:27:29.189Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="榕城張国荣" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">榕城張国荣</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">大家好，我是晴空</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-C语言指针" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/11/12/C%E8%AF%AD%E8%A8%80%E6%8C%87%E9%92%88/" class="article-date">
+  <time class="dt-published" datetime="2022-11-12T06:12:02.000Z" itemprop="datePublished">2022-11-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      c语言指针
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>指针对于C来说太重要。然而，想要全面理解指针，除了要对C语言有熟练的掌握外，还要有计算机硬件以及操作系统等方方面面的基本知识。所以本文尽可能的通过一篇文章完全讲解指针。</p>
+<p>为什么需要指针？</p>
+<p>指针解决了一些编程中基本的问题。</p>
+<p>第一，指针的使用使得不同区域的代码可以轻易的共享内存数据。当然小伙伴们也可以通过数据的复制达到相同的效果，但是这样往往效率不太好。</p>
+<p>因为诸如结构体等大型数据，占用的字节数多，复制很消耗性能。</p>
+<p>但使用指针就可以很好的避免这个问题，因为任何类型的指针占用的字节数都是一样的（根据平台不同，有4字节或者8字节或者其他可能）。</p>
+<p>第二，指针使得一些复杂的链接性的数据结构的构建成为可能，比如链表，链式二叉树等等。</p>
+<p>第三，有些操作必须使用指针。如操作申请的堆内存。</p>
+<p>还有：C语言中的一切函数调用中，值传递都是“按值传递”的。</p>
+<p>如果我们要在函数中修改被传递过来的对象，就必须通过这个对象的指针来完成。</p>
+<p>计算机是如何从内存中进行取指的？</p>
+<p>计算机的总线可以分为3种：数据总线，地址总线和控制总线。这里不对控制总线进行描述。数据总线用于进行数据信息传送。数据总线的位数一般与CPU的字长一致。一般而言，数据总线的位数跟当前机器int值的长度相等。例如在16位机器上，int的长度是16bit，32位机器则是32bit。这个计算机一条指令最多能够读取或者存取的数据长度。大于这个值，计算机将进行多次访问。这也就是我们说的64位机器进行64位数据运算的效率比32位要高的原因，因为32位机要进行两次取指和运行，而64位机却只需要一次！</p>
+<p>地址总线专门用于寻址，CPU通过该地址进行数据的访问，然后把处于该地址处的数据通过数据总线进行传送，传送的长度就是数据总线的位数。地址总线的位数决定了CPU可直接寻址的内存空间大小，比如CPU总线长32位，其最大的直接寻址空间长232KB，也就是4G。这也就是我们常说的32位CPU最大支持的内存上限为4G（当然，实际上支持不到这个值，因为一部分寻址空间会被映射到外部的一些IO设备和虚拟内存上。现在通过一些新的技术，可以使32位机支持4G以上内存，但这个不在这里的讨论范围内）。</p>
+<p>一般而言，计算机的地址总线和数据总线的宽度是一样的，我们说32位的CPU，数据总线和地址总线的宽度都是32位。</p>
+<p>计算机访问某个数据的时候，首先要通过地址总线传送数据存储或者读取的位置，然后在通过数据总线传送需要存储或者读取的数据。一般地，int整型的位数等于数据总线的宽度，指针的位数等于地址总线的宽度。</p>
+<p>计算机的基本访问单元</p>
+<p>学过C语言的人都知道，C语言的基本数据类型中，就属char的位数最小，是8位。我们可以认为计算机以8位，即1个字节为基本访问单元。小于一个字节的数据，必须通过位操作来进行访问。</p>
+<p>内存访问方式</p>
+<p>计算机在进行数据访问的时候，是以字节为基本单元进行访问的，所以可以认为，计算每次都是从第p个字节开始访问的。访问的长度将由编译器根据实际类型进行计算</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/11/12/C%E8%AF%AD%E8%A8%80%E6%8C%87%E9%92%88/" data-id="clagsjerr0002lghcffp9854k" data-title="c语言指针" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/11/12/C%E8%AF%AD%E8%A8%80%E4%B8%AD%E8%BE%93%E5%87%BA%E7%9A%84%E6%A0%BC%E5%BC%8F%E7%B1%BB%E5%9E%8B/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          C语言中的输出格式类型
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/10/25/%E4%BB%8E%E6%AD%A4%E8%BF%9B%E5%85%A5%E7%BD%91%E5%AE%89%E5%A4%A7%E5%AE%B6%E5%BA%AD/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">从此进入网安大家庭</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/11/14/%E4%BD%A0%E4%BB%AC%E5%A5%BD%E5%91%80/">你们好呀</a>
+          </li>
+        
+          <li>
+            <a href="/2022/11/14/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2022/11/14/41545/">41545</a>
+          </li>
+        
+          <li>
+            <a href="/2022/11/14/5446541/">5446541</a>
+          </li>
+        
+          <li>
+            <a href="/2022/11/14/if%E5%B5%8C%E5%A5%97%E7%BB%93%E6%9E%84%E8%AF%AD%E5%8F%A5/">if嵌套结构语句</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

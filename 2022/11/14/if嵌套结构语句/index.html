@@ -4,17 +4,17 @@
   <meta charset="utf-8">
   
   
-  <title>Hello World | 榕城張国荣</title>
+  <title>if嵌套结构语句 | 榕城張国荣</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+  <meta name="description" content="#include&lt;stdio.h&gt;iint main(){ &#x2F;*if嵌套结构语句（就是说满足条件时的if的执行代码里面还可以也可以再次使用if的条件语句） 目的是能够更精确的判断所描述的内容： if（条件1）&amp;#123;若满足条件1时执行的代码&amp;#125;else if（条件2）&amp;#123;条件2满足时执行的代码&amp;#125;...else&amp;#123;&amp;#125;都不满足时执行的代码 题">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://example.com/2022/11/14/hello-world/index.html">
+<meta property="og:title" content="if嵌套结构语句">
+<meta property="og:url" content="http://example.com/2022/11/14/if%E5%B5%8C%E5%A5%97%E7%BB%93%E6%9E%84%E8%AF%AD%E5%8F%A5/index.html">
 <meta property="og:site_name" content="榕城張国荣">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="#include&lt;stdio.h&gt;iint main(){ &#x2F;*if嵌套结构语句（就是说满足条件时的if的执行代码里面还可以也可以再次使用if的条件语句） 目的是能够更精确的判断所描述的内容： if（条件1）&amp;#123;若满足条件1时执行的代码&amp;#125;else if（条件2）&amp;#123;条件2满足时执行的代码&amp;#125;...else&amp;#123;&amp;#125;都不满足时执行的代码 题">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-11-14T09:48:22.762Z">
-<meta property="article:modified_time" content="2022-10-16T13:04:44.444Z">
+<meta property="article:published_time" content="2022-11-13T16:19:56.000Z">
+<meta property="article:modified_time" content="2022-11-13T16:22:37.167Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -77,10 +77,10 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-if嵌套结构语句" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2022/11/14/hello-world/" class="article-date">
-  <time class="dt-published" datetime="2022-11-14T09:48:22.762Z" itemprop="datePublished">2022-11-14</time>
+    <a href="/2022/11/14/if%E5%B5%8C%E5%A5%97%E7%BB%93%E6%9E%84%E8%AF%AD%E5%8F%A5/" class="article-date">
+  <time class="dt-published" datetime="2022-11-13T16:19:56.000Z" itemprop="datePublished">2022-11-14</time>
 </a>
     
   </div>
@@ -91,7 +91,7 @@
         
   
     <h1 class="p-name article-title" itemprop="headline name">
-      Hello World
+      if嵌套结构语句
     </h1>
   
 
@@ -99,24 +99,44 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+        <p>#include&lt;stdio.h&gt;<br>iint main()<br>{</p>
+<pre><code>/*if嵌套结构语句（就是说满足条件时的if的执行代码里面还可以也可以再次使用if的条件语句）
+目的是能够更精确的判断所描述的内容：
+if（条件1）&#123;若满足条件1时执行的代码&#125;else if（条件2）&#123;条件2满足时执行的代码&#125;...else&#123;&#125;都不满足时执行的代码
+题目：输入您的高考分数，若大于600分则视为考上一本，500到600之间视为考上二本，400到500之间视为考上三本，
+400分以下视为没有考上本科,其中在一本分数中，如果大于700分则考入清华大学，若大于650则考入武汉大学*/
+int score;
+//1、提示输入高考分数
+printf(&quot;您的高考分数为：&quot;);
+//2、显示高考的分数(用输入设备（即键盘）输入高考分数)
+scanf(&quot;%d&quot;,&amp;score);
+//3、开始判断 
+if(score&gt;600)
+&#123;printf(&quot;恭喜你考上了一本！&quot;);
+if(score&gt;700)&#123;printf(&quot;恭喜你能考上清华大学&quot;);&#125;
+else
+if(score&gt;650)
+&#123;printf(&quot;恭喜您能考上武汉大学&quot;); 
+&#125; 
+&#125;
+else
+if(score&gt;500)
+&#123;printf(&quot;恭喜你考上了二本！&quot;); 
+&#125;else
+if(score&gt;400)
+&#123;printf(&quot;恭喜你考上了三本&quot;);
+&#125;else
+&#123;printf(&quot;很遗憾！你没有考上本科，请继续加油吧&quot;); 
+&#125; 
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+return 0; 
+</code></pre>
+<p>}</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/11/14/hello-world/" data-id="clagsjeru0006lghc6n0k8spr" data-title="Hello World" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/11/14/if%E5%B5%8C%E5%A5%97%E7%BB%93%E6%9E%84%E8%AF%AD%E5%8F%A5/" data-id="clagsjers0003lghc1upjbw99" data-title="if嵌套结构语句" class="article-share-link">Share</a>
       
       
       
@@ -126,19 +146,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2022/11/14/%E4%BD%A0%E4%BB%AC%E5%A5%BD%E5%91%80/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2022/11/14/5446541/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          你们好呀
+          5446541
         
       </div>
     </a>
   
   
-    <a href="/2022/11/14/41545/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2022/11/13/%E5%8F%A4%E5%A4%A9%E4%B9%90%E7%9A%84%E5%8A%B1%E5%BF%97%E6%95%85%E4%BA%8B-%E4%BB%8E%E5%9B%9A%E7%8A%AF%E5%88%B0%E5%8F%A4%E6%A0%A1%E9%95%BF/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">41545</div>
+      <div class="article-nav-title">古天乐-从囚犯到古校长</div>
     </a>
   
 </nav>
