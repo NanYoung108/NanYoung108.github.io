@@ -24,7 +24,7 @@
 <meta property="og:description" content="一，数据结构的一般概念数据：所有能被输入到计算机并被处理的符号的集合 数据元素：数据的基本单位。 数据项：构成数据的不可分割的最小单位，一个数据元素有若干个数据项组成。 数据对象：相同性质的数据元素的集合，是数据的一个子集。 数据类型：一个值的集合和定义在这个集合上的一组操作的总成。 原子类型：值不可在分割的数据类型。 结构类型：值不可在分解成若干的数据类型。 抽象数据类型：抽象数据组织和与之相关">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-04-24T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-04-25T11:02:28.395Z">
+<meta property="article:modified_time" content="2023-04-25T11:14:00.159Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -219,7 +219,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          5.2k words
+          5.1k words
         
       </span>
     
@@ -230,7 +230,7 @@
         
         
         
-          44 mins
+          43 mins
         
       </span>
     
@@ -404,8 +404,8 @@
 <p>初始时：Q.front&#x3D;Q.rear&#x3D;0<br>对首指针进1：Q.front&#x3D;(Q.front+1)%MaxSize<br>对尾指针进1：Q.rear&#x3D;(Q.rear+1)%MaxSize<br>队列长度：(Q.rear+MaxSize-Q.front)%MaxSize<br>队满判断：一般有三种<br>牺牲一个单元来区分队空队满，即队头指针在队尾指针的下一位置作为队满的标志<br>队满条件：(Q.rear+1)%MaxSize&#x3D;&#x3D;Q.front<br>队空条件：Q.front&#x3D;&#x3D;Q.front<br>队列中元素的个数：(Q.rear-Q.front+MaxSize)%MaxSize<br>类型中增设表示元素个数的数据成员size，则队空条件为Q.size&#x3D;0，队满条件为Q.size&#x3D;MaxSize，两种情况中都有Q.front&#x3D;Q.rear<br>类型中增设tag数据成员，区分队空还是队满。则tag等于0的情况下，因删除导致Q.front&#x3D;&#x3D;Q.rear则为队空，tag&#x3D;1的情况下，因插入导致Q.front&#x3D;&#x3D;Q.rear则为队满</p>
 <p>双端队列</p>
 <p>双端队列是指允许两端都可以进行入队和出队操作的</p>
-<p>输出受限的双端队列：允许一端进行插入和删除，但在另一端只允许插入的双端队列<br>输入受限的双端队列：允许一端进行插入和删除，但在另一端只允许删除的双端队列<br>栈和队列的应用</p>
-<p>中缀转后缀表达式<br>若为‘(’，入栈<br>若为‘)’，则依次把栈中的运算符加入后缀表达式，直到出现‘(’，并从栈中删除‘(’<br>若为‘+’，‘-’，‘*’，‘&#x2F;’<br>栈空，入栈<br>栈顶元素为‘(’，入栈<br>高于栈顶元素优先级，入栈<br>否则，依次弹出栈顶运算符，直到一个优先级比他低的运算符或‘)’为止<br>*遍历完成，若栈非空，依次弹出所有元素<br>矩阵</p>
+<p>输出受限的双端队列：允许一端进行插入和删除，但在另一端只允许插入的双端队列<br>输入受限的双端队列：允许一端进行插入和删除，但在另一端只允许删除的双端队列</p>
+<p>矩阵</p>
 <p>压缩矩阵：指多个值相同的元素只分配一个存储空间，对零元素不分配存储空间。其目的是为了节省存储空间<br>特殊矩阵：指具有许多相同矩阵元素或零元素，并且这些相同矩阵元素或零元素的分布有一定规律性的矩阵。常见特殊矩阵有对称矩阵、上（下）三角矩阵、对角矩阵等<br>特殊矩阵的压缩存储方法：找出特殊矩阵中值相同的矩阵元素的分布规律，把那些呈现规律性分布的值的多个矩阵元素压缩存储到一个存储空间中</p>
 <p>对称矩阵<br>元素下标的对应关系<br>k &#x3D; i * ( i - 1 ) &#x2F; 2 + j - 1 ; i &gt;&#x3D; j<br>k &#x3D; j * ( j - 1 ) &#x2F; 2 + i - 1 ; i &lt; j<br>三角矩阵<br>下三角矩阵元素下标的对应关系<br>k &#x3D; i * ( i - 1 ) &#x2F; 2 + j - 1 ; i &gt;&#x3D; j<br>k &#x3D; n * ( n + 1 ) &#x2F; 2 ; i &lt; j<br>上三角矩阵元素下标的对应关系<br>k &#x3D; ( i - 1 ) * ( 2n - i + 2 ) &#x2F; 2 + ( j - i ) ; i &lt;&#x3D; j<br>k &#x3D; n * ( n + 1 ) &#x2F; 2 ; i &gt; j<br>三对角矩阵<br>元素下标的对应关系<br>k &#x3D; 3 * ( i - 1 ) - 1 + j - i + 1 &#x3D; 2i + j - 3<br>已知k求i、j<br>i &#x3D; [ ( k + 1 ) &#x2F; 3 + 1 ] ; j &#x3D; k - 2i + 3<br>稀疏矩阵</p>
 <p>矩阵元素个数远大于非零元素个数的矩阵</p>
@@ -424,7 +424,7 @@
 <p>5．掌握各种查找方法的时间性能分析。</p>
 <p>七、内部排序<br>1．掌握直接插入排序、希尔排序、冒泡排序、快速排序、简单选择排序、堆排序、归并排序；理解基数排序。</p>
 <p>2．学会各种内部排序方法的比较（时间复杂度、空间复杂度、稳定性）。</p>
-<p>————————————————<br>原文链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_45228323/article/details/105831244">https://blog.csdn.net/qq_45228323/article/details/105831244</a></p>
+<p>原文链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_45228323/article/details/105831244">https://blog.csdn.net/qq_45228323/article/details/105831244</a></p>
 
                 
               </div>
